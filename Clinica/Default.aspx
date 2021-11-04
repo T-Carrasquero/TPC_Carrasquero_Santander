@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Clinica._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+     
+    <h1>TPC Clinica</h1>
 
     <div class="jumbotron">
         <%--<h1>ASP.NET</h1> 

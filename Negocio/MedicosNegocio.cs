@@ -22,7 +22,7 @@ namespace Negocio
             {
                 Conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "Select Dni, Nombres, Apellidos, Sexo, Direccion, Email, Telefono, Matricula from Medicos";
+                Comando.CommandText = "select medicos.Dni, medicos.Nombres, medicos.Apellidos, medicos.Sexo, medicos.matricula, e.Descripcion from Medicos medicos left join EspecialidadesPorMedico epm on Dni = epm.DniMedico left join Especialidades e on epm.IdEspecialidad = e.Id";
                 Comando.Connection = Conexion;
 
                 Conexion.Open();
@@ -33,11 +33,12 @@ namespace Negocio
                     Profesional aux = new Profesional();
                     aux.Apellido = (string)lector["Apellidos"];
                     aux.Nombre = (string)lector["Nombres"];
-                    aux.Dni = (int)lector["Dni"];
+                    aux.Dni = (string)lector["Dni"];
                     aux.Sexo = (string)lector["Sexo"];
-                    aux.Direccion = (string)lector["Direccion"];
-                    aux.Mail = (string)lector["Email"];
-                    aux.Matricula = (string)lector["Matricula"];
+                    aux.Especialidad = (string)lector["Descripcion"];
+                    /* aux.Direccion = (string)lector["Direccion"];
+                     aux.Mail = (string)lector["Email"];*/
+                    aux.Matricula = (string)lector["matricula"];
 
                     lista.Add(aux);
                 }

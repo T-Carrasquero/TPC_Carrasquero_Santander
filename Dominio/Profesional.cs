@@ -8,11 +8,11 @@ namespace Dominio
 {
     public class Profesional
     {
-        public int Dni { get; set; }
+        public string Dni { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Sexo { get; set; }
-        public Especialidad especialidad { get; set; }
+        public string Especialidad { get; set; }
         public Localidad Localidad { get; set; }
         public string Direccion { get; set; }
         public string Mail { get; set; }
@@ -21,9 +21,11 @@ namespace Dominio
 
         public Profesional()
         {
+            Dni = string.Empty;
             Nombre = string.Empty;
             Apellido = string.Empty;
             Sexo = string.Empty;
+            Especialidad = string.Empty;
             Direccion = string.Empty;
             Mail = string.Empty;
             Telefono = string.Empty;
