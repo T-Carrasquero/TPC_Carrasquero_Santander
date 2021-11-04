@@ -15,7 +15,7 @@ namespace Dominio
 
         public AccesoDatos()
         {
-            Conexion = new SqlConnection("data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB; integrated security=sspi");
+            Conexion = new SqlConnection("data source=.\\SQLEXPRESS; initial catalog=#; integrated security=sspi");
             Comando = new SqlCommand();
         }
 

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Especialidad
+    public class Especialidad
     {
-        private string descripcion { get; set; }
+        public string Descripcion { get; set; }
         
 
-        public Especialidad() { descripcion = string.Empty; }
+        public Especialidad() { Descripcion = string.Empty; }
     }
 
 

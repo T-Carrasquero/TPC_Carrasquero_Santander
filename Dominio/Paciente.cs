@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Paciente
+    public class Paciente
     {
-        private int dni { get; set; }
-        private string nombre { get; set; }
-        private string apellido { get; set; }
-        private string sexo { get; set; }
-        private Localidad localidad { get; set; }
-        private string direccion { get; set; }
-        private string mail { get; set; }
-        private string telefono { get; set; }
+        public int dni { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string sexo { get; set; }
+        public Localidad localidad { get; set; }
+        public string direccion { get; set; }
+        public string mail { get; set; }
+        public string telefono { get; set; }
 
         public Paciente()
         {

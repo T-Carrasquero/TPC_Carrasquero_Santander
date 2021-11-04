@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Turnos
+    public class Turnos
     {
         private Profesional medico { get; set; }
         private DateTime fecha { get; set; }
         private Paciente paciente { get; set; }
-        private string estado { get; set; }
+        private string Estado { get; set; }
 
         public Turnos()
         {
             fecha = DateTime.Now;
-            estado = string.Empty;
+            Estado = string.Empty;
         }
     }
 }

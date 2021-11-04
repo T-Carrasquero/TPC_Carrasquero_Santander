@@ -4,31 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Dominio
 {
-    class Profesional
+    public class Profesional
     {
-        private int dni { get; set; }
-        private string nombre { get; set; }
-        private string apellido { get; set; }
-        private string sexo { get; set; }
-        private Especialidad especialidad { get; set; }
-        private Localidad localidad { get; set; }
-        private string direccion { get; set; }
-        private string mail { get; set; }
-        private string telefono { get; set; }
-        private string matricula { get; set; }
+        public int Dni { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Sexo { get; set; }
+        public Especialidad especialidad { get; set; }
+        public Localidad Localidad { get; set; }
+        public string Direccion { get; set; }
+        public string Mail { get; set; }
+        public string Telefono { get; set; }
+        public string Matricula { get; set; }
 
         public Profesional()
         {
-            nombre = string.Empty;
-            apellido = string.Empty;
-            sexo = string.Empty;
-            direccion = string.Empty;
-            mail = string.Empty;
-            telefono = string.Empty;
-            matricula = string.Empty;
+            Nombre = string.Empty;
+            Apellido = string.Empty;
+            Sexo = string.Empty;
+            Direccion = string.Empty;
+            Mail = string.Empty;
+            Telefono = string.Empty;
+            Matricula = string.Empty;
         }
 
     }

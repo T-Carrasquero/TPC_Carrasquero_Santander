@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Usuario
+    public class Usuario
     {
-        private string username { get; set; }
-        private string password { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
 
         public Usuario()
         {
-            username = string.Empty;
-            password = string.Empty;
+            Username = string.Empty;
+            Password = string.Empty;
         }
     }
 

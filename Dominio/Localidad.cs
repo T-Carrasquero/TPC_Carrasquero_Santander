@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Localidad
+    public class Localidad
     {
-        private int codigoPostal { get; set; }
-        private string nombre { get; set; }
-        private string provincia { get; set; }
-        private string pais { get; set; }
+        public int codigoPostal { get; set; }
+        public string nombre { get; set; }
+        public string provincia { get; set; }
+        public string pais { get; set; }
 
         public Localidad()
         {
