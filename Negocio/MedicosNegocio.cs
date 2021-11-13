@@ -21,7 +21,7 @@ namespace Negocio
 
             try
             {
-                Conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB2; integrated security=sspi";
+                Conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
                 Comando.CommandText = "select medicos.Dni, medicos.Nombres, medicos.Apellidos, medicos.Sexo, medicos.Matricula, e.Descripcion from Medicos medicos left join EspecialidadesPorMedico epm on Dni = epm.DniMedico left join Especialidades e on epm.IdEspecialidad = e.Id";
                 Comando.Connection = Conexion;

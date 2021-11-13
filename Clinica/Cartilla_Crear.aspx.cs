@@ -43,12 +43,14 @@ namespace Clinica
             medico.Dni = Dni.Text;
         
             var espIndex = 0;
+            var idesp = 0;
             foreach (var item in Especialidad)
             {
                 espIndex++;
                 if(ddlEspecialidad.SelectedValue == item.Descripcion)
                 {
                     medico.Especialidad = ddlEspecialidad.SelectedValue;
+                    idesp = espIndex;
 
                 }
             }
@@ -96,7 +98,7 @@ namespace Clinica
 
             var grabo = negocio.crear(medico);
             Response.Write("<script language=javascript> alert('" + grabo  + "'); </script>");
-            var grabo2 = espNegocio.setEspecialidad(espIndex, medico.Dni);
+            var grabo2 = espNegocio.setEspecialidad(idesp, medico.Dni);
             Response.Write("<script language=javascript> alert('" + grabo2 + "'); </script>");
 
 

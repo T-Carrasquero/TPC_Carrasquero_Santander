@@ -43,7 +43,7 @@ namespace Negocio
 
             try
             {
-                Conexion.SetearConsulta("insert into EspecialidadesPorMedico ('DniMedico','IdEspecialidad') values (@dni,@idEsp)");
+                Conexion.SetearConsulta("insert into EspecialidadesPorMedico (DniMedico,IdEspecialidad) values (@dni,@idEsp)");
 
                 Conexion.agregarParametro("@dni", dni);
                 Conexion.agregarParametro("@idEsp", index);
