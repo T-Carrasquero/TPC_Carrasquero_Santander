@@ -15,10 +15,14 @@ namespace Dominio
 
         public AccesoDatos()
         {
-            Conexion = new SqlConnection("data source=.\\SQLEXPRESS; initial catalog=#; integrated security=sspi");
+            Conexion = new SqlConnection("data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB2; integrated security=sspi");
             Comando = new SqlCommand();
         }
 
+        public void AbrirConexion()
+        {
+            Conexion.Open();
+        }
         public void SetearConsulta(string consulta)
         {
             Comando.CommandType = System.Data.CommandType.Text;
@@ -30,6 +34,7 @@ namespace Dominio
             Comando.Connection = Conexion;
             Conexion.Open();
             lector = Comando.ExecuteReader();
+
         }
 
         public void CerrarConexion()
@@ -43,6 +48,24 @@ namespace Dominio
         {
             get { return lector; }
         }
+       
+        public void agregarParametro(string nombre, object valor)
+        {
+            Comando.Parameters.AddWithValue(nombre, valor);
+        }
 
+        internal void ejecutarAccion()
+        {
+            Comando.Connection = Conexion;
+            Conexion.Open();
+            Comando.ExecuteNonQuery();
+        }
+
+        public void cerrarConexion()
+        {
+            if (lector != null)
+                lector.Close();
+            Conexion.Close();
+        }
     }
 }
