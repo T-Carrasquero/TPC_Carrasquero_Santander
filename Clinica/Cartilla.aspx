@@ -16,7 +16,7 @@
 
     <div style="display:flex; justify-content:space-between; align-items:center; margin-top: 2em;" title="Nuevo Registro" >
            <h3>Cartilla de Profesionales</h3>
-            <button class="w3-button w3-green" style="display:flex; height:40%;"><a href="/Cartilla_Crear.aspx" style="text-decoration:none;">+</a></button>
+            <a class="w3-button w3-green" href="/Cartilla_Crear.aspx">+</a>
        
     </div>
     <div id="tableContenedor" style="margin-top:2em;">
@@ -40,8 +40,10 @@
                       <td><%:item.Especialidad%></td>
                       <td><%:item.Matricula %></td>
                       <td>
-                          <a class="btn" href="path/to/settings" aria-label="Delete"> <i class="material-icons" aria-hidden="true">edit</i></a>
-                          <a class="btn" href="path/to/settings" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
+
+                          <a class="btn" href="/Cartilla_Crear.aspx?dni=<%:item.Dni%>" aria-label="Edit"> <i class="material-icons" aria-hidden="true">edit</i></a>
+                          <asp:LinkButton CssClass="material-icons"  Text="delete"  font-Overline="false" runat="server"  />
+
                       </td>
                     </tr>
              

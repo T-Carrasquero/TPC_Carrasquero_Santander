@@ -62,5 +62,30 @@ namespace Negocio
             }
         }
 
+        public bool modificarEspecialidad(int index, string dni)
+        {
+            AccesoDatos Conexion = new AccesoDatos();
+
+            try
+            {
+                Conexion.SetearConsulta("update EspecialidadesPorMedico set DniMedico=@dni,IdEspecialidad=@idEsp where DniMedico=@dni");
+
+                Conexion.agregarParametro("@dni", dni);
+                Conexion.agregarParametro("@idEsp", index);
+
+                Conexion.ejecutarAccion();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrarConexion();
+            }
+        }
+
     }
 }

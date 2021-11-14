@@ -17,6 +17,39 @@ namespace Clinica
             EspecialidadNegocio negocio = new EspecialidadNegocio();
             Especialidad = negocio.listar();
 
+            if(Request.QueryString["dni"] != null){
+                Response.Write("<script language=javascript> alert('" + Request.QueryString["dni"] + "'); </script>");
+                MedicosNegocio medNegocio = new MedicosNegocio();
+
+                Profesional med = new Profesional();
+                med = medNegocio.buscarMedicoId(Request.QueryString["dni"]);
+                nombre.Text = med.Nombre.ToString();
+                Apellido.Text = med.Apellido.ToString();
+                Dni.Text = med.Dni.ToString();
+                ddlEspecialidad.SelectedValue = med.Especialidad.ToString();
+                matricula.Text = med.Matricula.ToString();
+                telefono.Text = med.Telefono.ToString();
+                if (med.Sexo == "m")
+                {
+                    rbtnM.Value = med.Sexo;
+
+                }
+                if (med.Sexo == "f")
+                {
+                    rbtnF.Value = med.Sexo;
+
+                }
+                if (med.Sexo == "x")
+                {
+                    rbtnX.Value = med.Sexo;
+
+                }
+                email.Text = med.Mail.ToString();
+                direccion.Text = med.Direccion.ToString();
+                codigoPostal.Text = med.Localidad.ToString();
+
+            }
+
             if (!IsPostBack)
             {
                 foreach(var item in Especialidad)
@@ -33,13 +66,9 @@ namespace Clinica
             Profesional medico = new Profesional();
             EspecialidadNegocio espNegocio = new EspecialidadNegocio();
             Especialidad = espNegocio.listar();
-            
 
             medico.Nombre = nombre.Text;
-           
-
             medico.Apellido = Apellido.Text;
-        ;
             medico.Dni = Dni.Text;
         
             var espIndex = 0;
@@ -96,10 +125,19 @@ namespace Clinica
             }
          
 
-            var grabo = negocio.crear(medico);
-            Response.Write("<script language=javascript> alert('" + grabo  + "'); </script>");
-            var grabo2 = espNegocio.setEspecialidad(idesp, medico.Dni);
-            Response.Write("<script language=javascript> alert('" + grabo2 + "'); </script>");
+            if (Request.QueryString["dni"] != null)
+            {
+                var grabo = negocio.modificar(medico);
+                var grabo2 = espNegocio.modificarEspecialidad(idesp, medico.Dni);
+            }
+            else
+            {
+                var grabo = negocio.crear(medico);
+                Response.Write("<script language=javascript> alert('" + grabo  + "'); </script>");
+                var grabo2 = espNegocio.setEspecialidad(idesp, medico.Dni);
+                Response.Write("<script language=javascript> alert('" + grabo2 + "'); </script>");
+
+            }
 
 
         }

@@ -18,5 +18,9 @@ namespace Clinica
          
             medico = negocio.listar();
         }
+
+        protected void Editar_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
