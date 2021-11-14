@@ -154,7 +154,7 @@ namespace Negocio
             {
                 AccesoDatos conexion = new AccesoDatos();
 
-                conexion.SetearConsulta("DELETE FROM Medicos WHERE Dni='"+dni+"' ");
+                conexion.SetearConsulta("DELETE FROM Medicos WHERE Dni='" + dni + "'");
 
                 conexion.ejecutarAccion();
 
