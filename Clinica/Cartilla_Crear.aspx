@@ -30,7 +30,7 @@
                        <asp:RadioButtonList ID="rblist" runat="server" >
                            <asp:ListItem Value="m" cssClass="w3-radio" id="rbtnM" >Masculino</asp:ListItem>
                            <asp:ListItem Value="f" cssClass="w3-radio" id="rbtnF">Femenino</asp:ListItem>
-                           <asp:ListItem Selected="True" Value="x" cssClass="w3-radio" id="rbtnX">Otro</asp:ListItem>
+                           <asp:ListItem Value="x" cssClass="w3-radio" id="rbtnX">Otro</asp:ListItem>
                        </asp:RadioButtonList>
                            
                     </div>

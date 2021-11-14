@@ -17,8 +17,17 @@ namespace Clinica
             EspecialidadNegocio negocio = new EspecialidadNegocio();
             Especialidad = negocio.listar();
 
+            if (!IsPostBack)
+            {
+                foreach(var item in Especialidad)
+                {
+                    ListItem aux = new ListItem(item.Descripcion,item.Descripcion);
+                    ddlEspecialidad.Items.Add(aux);
+                }
+            }
+
+
             if(Request.QueryString["dni"] != null){
-                Response.Write("<script language=javascript> alert('" + Request.QueryString["dni"] + "'); </script>");
                 MedicosNegocio medNegocio = new MedicosNegocio();
 
                 Profesional med = new Profesional();
@@ -29,19 +38,19 @@ namespace Clinica
                 ddlEspecialidad.SelectedValue = med.Especialidad.ToString();
                 matricula.Text = med.Matricula.ToString();
                 telefono.Text = med.Telefono.ToString();
-                if (med.Sexo == "m")
+                if (med.Sexo == "m" || med.Sexo == "M")
                 {
-                    rbtnM.Value = med.Sexo;
+                    rbtnM.Selected = true;
 
                 }
-                if (med.Sexo == "f")
+                if (med.Sexo == "f" || med.Sexo == "F")
                 {
-                    rbtnF.Value = med.Sexo;
+                    rbtnF.Selected = true;
 
                 }
-                if (med.Sexo == "x")
+                if (med.Sexo == "x" || med.Sexo == "X")
                 {
-                    rbtnX.Value = med.Sexo;
+                    rbtnX.Selected = true;
 
                 }
                 email.Text = med.Mail.ToString();
@@ -50,14 +59,6 @@ namespace Clinica
 
             }
 
-            if (!IsPostBack)
-            {
-                foreach(var item in Especialidad)
-                {
-                    ListItem aux = new ListItem(item.Descripcion,item.Descripcion);
-                    ddlEspecialidad.Items.Add(aux);
-                }
-            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -133,10 +134,7 @@ namespace Clinica
             else
             {
                 var grabo = negocio.crear(medico);
-                Response.Write("<script language=javascript> alert('" + grabo  + "'); </script>");
                 var grabo2 = espNegocio.setEspecialidad(idesp, medico.Dni);
-                Response.Write("<script language=javascript> alert('" + grabo2 + "'); </script>");
-
             }
 
 

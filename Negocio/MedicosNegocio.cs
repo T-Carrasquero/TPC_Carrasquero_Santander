@@ -126,7 +126,7 @@ namespace Negocio
             {
                 AccesoDatos conexion = new AccesoDatos();
 
-                conexion.SetearConsulta("update Medicos set Dni=@dni, Apellidos=@apellidos,Nombres=@nombres,Sexo=@sexo,CodigoPostal=@cp,Direccion=@direccion,Email=@email,Telefono=@tel,Matricula=@matricula where Dni=@dni ");
+                conexion.SetearConsulta("update Medicos set Dni = @dni, Apellidos = @apellidos, Nombres = @nombres, Sexo = @sexo, CodigoPostal = @cp, Direccion = @direccion, Email = @email,Telefono = @tel, Matricula = @matricula where Dni = @dni ");
 
                 conexion.agregarParametro("@dni", nuevo.Dni);
                 conexion.agregarParametro("@apellidos", nuevo.Apellido);
