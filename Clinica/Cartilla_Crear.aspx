@@ -12,7 +12,7 @@
                 <div class="col-1" id="columna1" style="width:45%;" >
                    <div class="form-floating mb-3">
                         <asp:TextBox type="text" cssClass="form-control" id="nombre" placeholder="Nombre" required="true" runat="server" />
-                        <label for="Nombre">Nombre *</label>
+                        <label for="nombre">Nombre *</label>
                    </div>
         
                     <div class="form-floating mb-3">
@@ -82,7 +82,7 @@
 
         <div id="agregar" class="col-3" style="display:flex; justify-content:space-between; width:100%;  margin-top: 2em;">
              <p>(*) Campos obligatorios</p>
-             <asp:Button Text="Guardar" cssClass="btn btn-outline-success" ID="Agregar" OnClick="btnAgregar_Click" runat="server" />
+             <asp:Button Text="Agregar" cssClass="btn btn-outline-success" ID="Agregar" OnClick="btnAgregar_Click" runat="server" />
         </div>
 
 

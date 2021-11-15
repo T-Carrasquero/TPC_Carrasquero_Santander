@@ -148,13 +148,13 @@ namespace Negocio
             }
         }
 
-        public bool eliminar(int dni)
+        public bool eliminar(string dni)
         {
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
 
-                conexion.SetearConsulta("DELETE FROM Medicos WHERE Dni='"+dni+"' ");
+                conexion.SetearConsulta("DELETE FROM Medicos WHERE Dni='"+ dni +"' ");
 
                 conexion.ejecutarAccion();
 

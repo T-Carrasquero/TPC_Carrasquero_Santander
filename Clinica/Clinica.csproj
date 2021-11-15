@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Cartilla_Crear.aspx" />
+    <Content Include="ConfirmarModal.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -178,6 +179,13 @@
     </Compile>
     <Compile Include="Cartilla_Crear.aspx.designer.cs">
       <DependentUpon>Cartilla_Crear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmarModal.aspx.cs">
+      <DependentUpon>ConfirmarModal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmarModal.aspx.designer.cs">
+      <DependentUpon>ConfirmarModal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

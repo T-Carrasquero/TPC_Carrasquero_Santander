@@ -19,44 +19,48 @@ namespace Clinica
 
             if (!IsPostBack)
             {
-                foreach(var item in Especialidad)
-                {
-                    ListItem aux = new ListItem(item.Descripcion,item.Descripcion);
-                    ddlEspecialidad.Items.Add(aux);
-                }
+                    foreach(var item in Especialidad)
+                    {
+                        ListItem aux = new ListItem(item.Descripcion,item.Descripcion);
+                        ddlEspecialidad.Items.Add(aux);
+                    }
             }
 
+            if (!IsPostBack)
+            {
 
-            if(Request.QueryString["dni"] != null){
-                MedicosNegocio medNegocio = new MedicosNegocio();
-
-                Profesional med = new Profesional();
-                med = medNegocio.buscarMedicoId(Request.QueryString["dni"]);
-                nombre.Text = med.Nombre.ToString();
-                Apellido.Text = med.Apellido.ToString();
-                Dni.Text = med.Dni.ToString();
-                ddlEspecialidad.SelectedValue = med.Especialidad.ToString();
-                matricula.Text = med.Matricula.ToString();
-                telefono.Text = med.Telefono.ToString();
-                if (med.Sexo == "m" || med.Sexo == "M")
+                if (Request.QueryString["dni"] != null)
                 {
-                    rbtnM.Selected = true;
 
+                    MedicosNegocio medNegocio = new MedicosNegocio();
+
+                    Profesional med = new Profesional();
+                    med = medNegocio.buscarMedicoId(Request.QueryString["dni"]);
+                    nombre.Text = med.Nombre;
+                    Apellido.Text = med.Apellido;
+                    Dni.Text = med.Dni;
+                    ddlEspecialidad.SelectedValue = med.Especialidad;
+                    matricula.Text = med.Matricula;
+                    telefono.Text = med.Telefono;
+                    if (med.Sexo == "m" || med.Sexo == "M")
+                    {
+                        rbtnM.Selected = true;
+
+                    }
+                    if (med.Sexo == "f" || med.Sexo == "F")
+                    {
+                        rbtnF.Selected = true;
+
+                    }
+                    if (med.Sexo == "x" || med.Sexo == "X")
+                    {
+                        rbtnX.Selected = true;
+
+                    }
+                    email.Text = med.Mail;
+                    direccion.Text = med.Direccion;
+                    codigoPostal.Text = med.Localidad.ToString();
                 }
-                if (med.Sexo == "f" || med.Sexo == "F")
-                {
-                    rbtnF.Selected = true;
-
-                }
-                if (med.Sexo == "x" || med.Sexo == "X")
-                {
-                    rbtnX.Selected = true;
-
-                }
-                email.Text = med.Mail.ToString();
-                direccion.Text = med.Direccion.ToString();
-                codigoPostal.Text = med.Localidad.ToString();
-
             }
 
         }
@@ -137,7 +141,7 @@ namespace Clinica
                 var grabo2 = espNegocio.setEspecialidad(idesp, medico.Dni);
             }
 
-
+            Response.Redirect("/Cartilla.aspx");
         }
     }
 }
