@@ -41,7 +41,7 @@ create table Pacientes(
 	Direccion varchar(50),
 	Email varchar(50),
 	Telefono varchar(50),
-	Estado bit not null
+	Estado bit not null default (1)
 )
 go
 Use TPC_CLINICA_DB
@@ -939,3 +939,4 @@ insert into Pacientes (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,T
 ('24456789','Wilson','Esteban','m',1617,'Cerino 234','porcupine@outlook.com','1145634213',1),
 ('29567890','Jansen','Florencia','f',1618,'Guido 297','nightwish@gmail.com','1165476587',1)
 
+select Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono from Pacientes
