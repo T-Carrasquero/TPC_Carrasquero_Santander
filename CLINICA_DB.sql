@@ -31,7 +31,19 @@ create table EspecialidadesPorMedico(
     IdEspecialidad bigint not null foreign key references Especialidades(Id),
     primary key (DniMedico, IdEspecialidad)
 )
-
+go
+create table Pacientes(
+	Dni varchar(10) not null primary key,
+	Apellidos varchar(50) not null,
+	Nombres varchar(50) not null,
+	Sexo varchar(1) not null,
+	CodigoPostal int foreign key references Localidades(CodigoPostal),
+	Direccion varchar(50),
+	Email varchar(50),
+	Telefono varchar(50),
+	Estado bit not null
+)
+go
 Use TPC_CLINICA_DB
 go
 
@@ -919,3 +931,11 @@ insert into EspecialidadesPorMedico (DniMedico,IdEspecialidad) values
 ('40514203',31),
 ('40514204',32),
 ('40514205',33)
+
+insert into Pacientes (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono,Estado) values
+('20123456','Jimenez','Mariana','f',1618,'Neuquen 491', 'm.jimenez@outlook.com','1132456752',1),
+('20234567','Spinetta','Luis Alberto','m',1619,'Cazon 334','elflaco@gmail.com','114356980',1),
+('23345678','Myung','Juan','m',1620,'Pirovano 12','bassman@gmail.com','1129865431',1),
+('24456789','Wilson','Esteban','m',1617,'Cerino 234','porcupine@outlook.com','1145634213',1),
+('29567890','Jansen','Florencia','f',1618,'Guido 297','nightwish@gmail.com','1165476587',1)
+

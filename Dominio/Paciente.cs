@@ -8,23 +8,24 @@ namespace Dominio
 {
     public class Paciente
     {
-        public int dni { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string sexo { get; set; }
-        public Localidad localidad { get; set; }
-        public string direccion { get; set; }
-        public string mail { get; set; }
-        public string telefono { get; set; }
+        public string Dni { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Sexo { get; set; }
+        public int Localidad { get; set; }
+        public string Direccion { get; set; }
+        public string Mail { get; set; }
+        public string Telefono { get; set; }
+        public bool Estado { get; set; }
 
         public Paciente()
         {
-            nombre = string.Empty;
-            apellido = string.Empty;
-            sexo = string.Empty;
-            direccion = string.Empty;
-            mail = string.Empty;
-            telefono = string.Empty;
+            Nombre = string.Empty;
+            Apellido = string.Empty;
+            Sexo = string.Empty;
+            Direccion = string.Empty;
+            Mail = string.Empty;
+            Telefono = string.Empty;
         }
     }
 }

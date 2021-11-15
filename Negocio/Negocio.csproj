@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="EspecialidadNegocio.cs" />
+    <Compile Include="LocalidadNegocio.cs" />
     <Compile Include="MedicosNegocio.cs" />
+    <Compile Include="PacienteNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
