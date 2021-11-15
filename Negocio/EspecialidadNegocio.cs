@@ -87,5 +87,23 @@ namespace Negocio
             }
         }
 
+        public bool eliminar(string dni)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+
+                conexion.SetearConsulta("DELETE FROM EspecialidadesPorMedico WHERE DniMedico='" + dni + "' ");
+
+                conexion.ejecutarAccion();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

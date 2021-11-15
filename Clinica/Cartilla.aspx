@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Cartilla" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Cartilla.aspx.cs" Inherits="Clinica.WebForm1" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+ 
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
@@ -40,9 +40,10 @@
                       <td><%:item.Especialidad%></td>
                       <td><%:item.Matricula %></td>
                       <td>
-
+                          
                           <a class="btn" href="/Cartilla_Crear.aspx?dni=<%:item.Dni%>" aria-label="Edit"> <i class="material-icons" aria-hidden="true">edit</i></a>
-                          <asp:LinkButton CssClass="material-icons"  Text="delete"  font-Overline="false" runat="server"  />
+                          <a class="btn" href="/Cartilla.aspx?dni=<%:item.Dni%>" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
+                      
 
                       </td>
                     </tr>
@@ -59,10 +60,8 @@
                 <th>Accion</th>
             </tr>
         </tfoot>
+
+     
     </table>
-    </div>
-   
-    
-
-
+  </div>
 </asp:Content>
