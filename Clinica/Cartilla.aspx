@@ -32,8 +32,8 @@
         </thead>    
         <tbody>
             
-             <% foreach (var item in medico)
-                {  %>
+             <% foreach (var item in medicos)
+                 {  %>
                     <tr>
                       <td><%:item.Nombre %></td>
                       <td><%:item.Apellido %></td>

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Pacientes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Pacientes.aspx.cs" Inherits="Clinica.Pacientes" %>
-<asp:Content ID="BodyPacientes" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <script>
         $(document).ready(function () {
@@ -37,8 +37,6 @@
                     <tr>
                       <td><%:item.Nombre %></td>
                       <td><%:item.Apellido %></td>
-                      <td><%:item.Especialidad%></td>
-                      <td><%:item.Matricula %></td>
                       <td>
                           
                           <a class="btn" href="/Cartilla_Crear.aspx?dni=<%:item.Dni%>" aria-label="Edit"> <i class="material-icons" aria-hidden="true">edit</i></a>

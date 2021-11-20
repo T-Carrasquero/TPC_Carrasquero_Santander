@@ -11,11 +11,12 @@ namespace Clinica
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        public List<Profesional> medico { get; set; }
+        public List<Profesional> medicos { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             MedicosNegocio negocio = new MedicosNegocio();
-            medico = negocio.listar();
+            medicos = negocio.listar();
 
             if (Request.QueryString["dni"] != null)
             {
