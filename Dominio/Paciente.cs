@@ -12,7 +12,7 @@ namespace Dominio
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Sexo { get; set; }
-        public int Localidad { get; set; }
+        public string Localidad { get; set; }
         public string Direccion { get; set; }
         public string Mail { get; set; }
         public string Telefono { get; set; }
@@ -23,6 +23,7 @@ namespace Dominio
             Nombre = string.Empty;
             Apellido = string.Empty;
             Sexo = string.Empty;
+            //Localidad = string.Empty;
             Direccion = string.Empty;
             Mail = string.Empty;
             Telefono = string.Empty;

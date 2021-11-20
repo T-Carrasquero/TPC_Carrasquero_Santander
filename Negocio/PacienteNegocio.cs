@@ -21,7 +21,7 @@ namespace Negocio
             {
                 Conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "select Dni Apellidos, Nombres, Sexo, CodigoPostal, Direccion, Email, Telefono, Estado from Pacientes";
+                Comando.CommandText = "select p.*, l.Nombre, l.Provincia from Pacientes p left join Localidades l on p.CodigoPostal = l.CodigoPostal where Estado=1";
                 Comando.Connection = Conexion;
 
                 Conexion.Open();
@@ -33,6 +33,10 @@ namespace Negocio
                     aux.Apellido = (string)lector["Apellidos"];
                     aux.Nombre = (string)lector["Nombres"];
                     aux.Dni = (string)lector["Dni"];
+                    aux.Direccion = (string)lector["Direccion"];
+                    aux.Mail = (string)lector["Email"];
+                    aux.Localidad = (string)lector["Nombre"] + " - " + (string)lector["Provincia"];
+                    aux.Telefono = (string)lector["Telefono"];
                     aux.Sexo = (string)lector["Sexo"];
                     aux.Estado = (bool)lector["Estado"];
                     lista.Add(aux);
@@ -72,7 +76,7 @@ namespace Negocio
                     aux.Direccion = (string)lector["Direccion"];
                     aux.Mail = (string)lector["Email"];
                     aux.Telefono = (string)lector["Telefono"];
-                    aux.Localidad = (int)lector["CodigoPostal"];
+                    //aux.Localidad = (string)lector["CodigoPostal"];
                 }
 
                 Conexion.Close();

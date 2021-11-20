@@ -23,7 +23,8 @@ Create Table Medicos(
 	Direccion varchar(50),
 	Email varchar(50),
 	Telefono varchar(50),
-	Matricula varchar(50) not null
+	Matricula varchar(50) not null,
+	Estado bit not null default (1)
 )
 go
 create table EspecialidadesPorMedico(
