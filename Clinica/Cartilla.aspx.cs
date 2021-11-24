@@ -11,7 +11,8 @@ namespace Clinica
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        public List<Profesional> medico { get; set; }
+        public List<Profesional> medicos { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -21,7 +22,7 @@ namespace Clinica
 
 
             MedicosNegocio negocio = new MedicosNegocio();
-            medico = negocio.listar();
+            medicos = negocio.listar();
 
            // Response.Write("<script language='JavaScript'>alert('"+medico+"');</script>");
 

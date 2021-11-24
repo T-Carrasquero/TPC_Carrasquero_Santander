@@ -23,7 +23,7 @@ namespace Dominio
             Nombre = string.Empty;
             Apellido = string.Empty;
             Sexo = string.Empty;
-            Localidad = string.Empty;
+            //Localidad = string.Empty;
             Direccion = string.Empty;
             Mail = string.Empty;
             Telefono = string.Empty;

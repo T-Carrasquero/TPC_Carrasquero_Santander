@@ -44,13 +44,13 @@ namespace Clinica
                 throw;
             }
         }
+        
+        //protected void btnEliminar_Click(object sender, EventArgs e, string dni)
+        //{
+        //    string str = Request.QueryString["dni"];
+        //    Response.Write("<script lenguage=javascript>alert('" + str + "');</script>");
 
-        protected void btnEliminar_Click(object sender, EventArgs e, string dni)
-        {
-            string str = Request.QueryString["dni"];
-            Response.Write("<script lenguage=javascript>alert('" + str + "');</script>");
-
-        }
+        //}
 
         
     }

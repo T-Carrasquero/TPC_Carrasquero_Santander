@@ -76,7 +76,7 @@ namespace Negocio
                     aux.Direccion = (string)lector["Direccion"];
                     aux.Mail = (string)lector["Email"];
                     aux.Telefono = (string)lector["Telefono"];
-                    aux.Localidad = (string)lector["CodigoPostal"];
+                    //aux.Localidad = (string)lector["CodigoPostal"];
                 }
 
                 Conexion.Close();

@@ -40,8 +40,8 @@
         </thead>    
         <tbody>
             
-             <% foreach (var item in medico)
-                {  %>
+             <% foreach (var item in medicos)
+                 {  %>
                     <tr>
                       <td><%:item.Apellido + ", " + item.Nombre %> </td>
                       <td><%:item.Especialidad%></td>

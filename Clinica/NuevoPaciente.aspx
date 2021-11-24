@@ -5,7 +5,7 @@
     <div style="display:flex; flex-direction:column; justify-content:space-around; align-items:center; margin-top: 2em;">
    
     <div id="titulo" style="display:flex; flex-direction:column; justify-content:space-between; width:100%;  margin-bottom: 2em;">
-         <h3>Agregar nuevo Profesional</h3>
+         <h3>Alta Paciente</h3>
     </div>
 
     <div id="form" style="display:flex; flex-direction:row; justify-content:space-around; width:100%;">
@@ -35,10 +35,10 @@
                        </asp:RadioButtonList>
                            
                     </div>
-                    <div id="especialidad-ls" style="padding-top:20px;">
+                    <%--<div id="especialidad-ls" style="padding-top:20px;">
                         <asp:DropDownList id="ddlEspecialidad" runat="server" class="form-select" aria-label="Default select example" required="true">
                             <asp:ListItem Text="Especialidad *" />
-                        </asp:DropDownList>
+                        </asp:DropDownList>--%>
 
 
                      <%-- <select class="form-select" aria-label="Default select example" required>
@@ -49,14 +49,14 @@
                                     <%id ++ ;%> 
                                <%} %>
                       </select>--%>
-                   </div>
+                   <%--</div>--%>
    
                </div>
                 <div class="col-2" id="columna2" style="display:flex; flex-direction:column; justify-content:space-around; width:45%;">
-                    <div class="form-floating mb-3">
+                    <%--<div class="form-floating mb-3">
                          <asp:TextBox type="text" cssClass="form-control" id="matricula" placeholder="Matricula" required="true" runat="server" />
                         <label for="matricula">Matricula *</label>
-                    </div>
+                    </div>--%>
 
                     <div class="form-floating mb-3">
                         <asp:TextBox type="text" ID="email" placeholder="name@example.com" CssClass="form-control" runat="server" />
