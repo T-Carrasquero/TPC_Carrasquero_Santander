@@ -45,6 +45,20 @@ create table Pacientes(
 	Estado bit not null default (1)
 )
 go
+create table Usuarios_tipos(
+	Id bigint not null PRIMARY KEY IDENTITY(1,1),
+	Descripcion varchar(50) not null
+)
+go
+create table Usuarios(
+	Id bigint not null PRIMARY KEY IDENTITY(1,1),
+	Nombre varchar (50) not null UNIQUE,
+	Contraseña varchar (50) not null,
+	IdTipoUsuario bigint not null foreign key references Usuarios_tipos(Id),
+	dniPaciente varchar(10),
+	Estado bit not NULL default (1)
+)
+go
 Use TPC_CLINICA_DB
 go
 
@@ -939,5 +953,18 @@ insert into Pacientes (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,T
 ('23345678','Myung','Juan','m',1620,'Pirovano 12','bassman@gmail.com','1129865431',1),
 ('24456789','Wilson','Esteban','m',1617,'Cerino 234','porcupine@outlook.com','1145634213',1),
 ('29567890','Jansen','Florencia','f',1618,'Guido 297','nightwish@gmail.com','1165476587',1)
+
+insert into Usuarios_tipos (Descripcion) VALUES
+('Paciente'),
+('Administrativo'),
+('Administrador')
+
+insert into Usuarios (dniPaciente,Nombre,Contraseña,IdTipoUsuario) values
+('20123456','mjimenez','123456','1'),
+('20234567','lspinetta','123456','1'),
+('23345678','jmyung','123456','1'),
+('24456789','ewilson','123456','1'),
+('29567890','fjansen','123456','1'),
+('40514188','admin','admin','3')
 
 select Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono from Pacientes
