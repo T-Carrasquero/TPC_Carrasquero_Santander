@@ -23,7 +23,7 @@ namespace Negocio
             {
                 Conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "select medicos.Dni, medicos.Nombres, medicos.Apellidos, medicos.Sexo, medicos.Matricula, e.Descripcion from Medicos medicos left join EspecialidadesPorMedico epm on Dni = epm.DniMedico left join Especialidades e on epm.IdEspecialidad = e.Id";
+                Comando.CommandText = "select medicos.*, e.Descripcion from Medicos medicos left join EspecialidadesPorMedico epm on Dni = epm.DniMedico left join Especialidades e on epm.IdEspecialidad = e.Id";
                 Comando.Connection = Conexion;
 
                 Conexion.Open();
@@ -37,8 +37,9 @@ namespace Negocio
                     aux.Dni = (string)lector["Dni"];
                     aux.Sexo = (string)lector["Sexo"];
                     aux.Especialidad = (string)lector["Descripcion"];
-                    /* aux.Direccion = (string)lector["Direccion"];
-                     aux.Mail = (string)lector["Email"];*/
+                    aux.Direccion = (string)lector["Direccion"];
+                    aux.Mail = (string)lector["Email"];
+                    aux.Telefono = (string)lector["Telefono"];
                     aux.Matricula = (string)lector["Matricula"];
 
                     lista.Add(aux);
@@ -63,7 +64,7 @@ namespace Negocio
             {
                 Conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "SELECT medicos.*, e.Descripcion from Medicos medicos left join EspecialidadesPorMedico epm on Dni = epm.DniMedico left join Especialidades e on epm.IdEspecialidad = e.Id where medicos.Dni='"+ dni +"'";
+                Comando.CommandText = "SELECT m.*, e.Descripcion from Medicos m left join EspecialidadesPorMedico epm on Dni = epm.DniMedico left join Especialidades e on epm.IdEspecialidad = e.Id where m.Dni='"+ dni +"'";
                 Comando.Connection = Conexion;
 
                 Conexion.Open();

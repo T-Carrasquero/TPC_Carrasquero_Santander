@@ -14,6 +14,12 @@ namespace Clinica
         public List<Especialidad> Especialidad { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+
             EspecialidadNegocio negocio = new EspecialidadNegocio();
             Especialidad = negocio.listar();
 

@@ -14,8 +14,16 @@ namespace Clinica
         public List<Profesional> medico { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+
             MedicosNegocio negocio = new MedicosNegocio();
             medico = negocio.listar();
+
+           // Response.Write("<script language='JavaScript'>alert('"+medico+"');</script>");
 
             if (Request.QueryString["dni"] != null)
             {
