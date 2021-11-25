@@ -59,23 +59,7 @@ namespace Clinica
             paciente.Dni = Dni.Text;
             paciente.Telefono = telefono.Text;
 
-
-            if (rbtnM.Selected == true)
-            {
-                paciente.Sexo = rbtnM.Value;
-
-            }
-            if (rbtnF.Selected == true)
-            {
-                paciente.Sexo = rbtnF.Value;
-
-            }
-            if (rbtnX.Selected == true)
-            {
-                paciente.Sexo = rbtnX.Value;
-
-            }
-
+            paciente.Sexo = ObtenerSexo();
 
             if (email.Text != null)
             {
@@ -104,6 +88,26 @@ namespace Clinica
             }
 
             Response.Redirect("/Pacientes.aspx");
+        }
+
+        private string ObtenerSexo()
+        {
+            if (rbtnM.Selected)
+            {
+                return rbtnM.Value;
+
+            }
+            if (rbtnF.Selected)
+            {
+                return rbtnF.Value;
+
+            }
+            if (rbtnX.Selected)
+            {
+                return rbtnX.Value;
+            }
+
+            return string.Empty;
         }
     }
 }

@@ -44,14 +44,14 @@
                           <td>
                           
                               <a class="btn" href="/NuevoPaciente.aspx?dni=<%:item.Dni%>" aria-label="Edit"> <i class="material-icons" aria-hidden="true">edit</i></a>
-                              <a class="btn" href="/Paciente.aspx?dni=<%:item.Dni%>" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
+                              <a class="btn" href="/Pacientes.aspx?dni=<%:item.Dni%>" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
                       
 
                           </td>
                         </tr>
              
                  <% }  %>
-           
+               
             </tbody>
             <tfoot>
                 <tr>
@@ -68,3 +68,4 @@
       </div>
     </div>
 </asp:Content>
+    

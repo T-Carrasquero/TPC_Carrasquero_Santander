@@ -62,7 +62,7 @@ namespace Negocio
             {
                 Conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=TPC_CLINICA_DB; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "select Dni, Apellidos, Nombres, Sexo, CodigoPostal, Direccion, Email, Telefono, Estado from Pacientes";
+                Comando.CommandText = "select Dni, Apellidos, Nombres, Sexo, CodigoPostal, Direccion, Email, Telefono, Estado from Pacientes where Dni = " + dni;
                 Comando.Connection = Conexion;
 
                 Conexion.Open();
@@ -95,7 +95,7 @@ namespace Negocio
             {
                 AccesoDatos conexion = new AccesoDatos();
 
-                conexion.SetearConsulta("insert into Pacientes(Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Mail,Telefono) values (@dni,@apellidos,@nombres,@sexo,@cp,@direccion,@mail,@telefono) ");
+                conexion.SetearConsulta("insert into Pacientes(Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono) values (@dni,@apellidos,@nombres,@sexo,@cp,@direccion,@mail,@telefono) ");
 
                 conexion.agregarParametro("@dni", nuevo.Dni);
                 conexion.agregarParametro("@apellidos", nuevo.Apellido);
@@ -110,7 +110,7 @@ namespace Negocio
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -122,7 +122,7 @@ namespace Negocio
             {
                 AccesoDatos conexion = new AccesoDatos();
 
-                conexion.SetearConsulta("update Pacientes set Dni = @dni, Apellidos = @apellidos, Nombres = @nombres, Sexo = @sexo, CodigoPostal = @cp, Direccion = @direccion, Mail = @mail,Telefono = @telefono where Dni = @dni ");
+                conexion.SetearConsulta("update Pacientes set Dni = @dni, Apellidos = @apellidos, Nombres = @nombres, Sexo = @sexo, CodigoPostal = @cp, Direccion = @direccion, Email = @email,Telefono = @telefono where Dni = @dni ");
 
                 conexion.agregarParametro("@dni", nuevo.Dni);
                 conexion.agregarParametro("@apellidos", nuevo.Apellido);
@@ -137,7 +137,7 @@ namespace Negocio
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -148,7 +148,7 @@ namespace Negocio
             AccesoDatos conexion = new AccesoDatos();
             try
             {
-                conexion.SetearConsulta("update Paciente set estado=0 where Dni=@dni");
+                conexion.SetearConsulta("update Pacientes set estado=0 where Dni=@dni");
                 conexion.agregarParametro("@dni", dni);
                 conexion.ejecutarAccion();
             }
