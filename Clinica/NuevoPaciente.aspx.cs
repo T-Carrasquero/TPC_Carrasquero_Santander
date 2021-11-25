@@ -39,7 +39,7 @@ namespace Clinica
                     direccion.Text = paciente.Direccion;
                     email.Text = paciente.Mail;
                     telefono.Text = paciente.Telefono;
-                    codigoPostal.Text = paciente.Localidad;
+                    codigoPostal.Text = paciente.Localidad.ToString();
                 }
             }
         }
@@ -86,7 +86,7 @@ namespace Clinica
 
             if (codigoPostal.Text != null)
             {
-                paciente.Localidad = codigoPostal.Text;
+                paciente.Localidad = int.Parse(codigoPostal.Text);
             }
 
             if (Request.QueryString["dni"] != null)

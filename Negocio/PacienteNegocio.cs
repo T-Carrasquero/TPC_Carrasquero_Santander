@@ -35,7 +35,8 @@ namespace Negocio
                     aux.Dni = (string)lector["Dni"];
                     aux.Direccion = (string)lector["Direccion"];
                     aux.Mail = (string)lector["Email"];
-                    aux.Localidad = (string)lector["Nombre"] + " - " + (string)lector["Provincia"];
+                    //aux.Localidad = (int)lector["CodigoPostal"] + " - " + (string)lector["Nombre"] " - " + (string)lector["Provincia"];
+                    aux.Localidad = (int)lector["CodigoPostal"];
                     aux.Telefono = (string)lector["Telefono"];
                     aux.Sexo = (string)lector["Sexo"];
                     aux.Estado = (bool)lector["Estado"];
@@ -76,7 +77,7 @@ namespace Negocio
                     aux.Direccion = (string)lector["Direccion"];
                     aux.Mail = (string)lector["Email"];
                     aux.Telefono = (string)lector["Telefono"];
-                    //aux.Localidad = (string)lector["CodigoPostal"];
+                    aux.Localidad = (int)lector["CodigoPostal"];
                 }
 
                 Conexion.Close();
