@@ -45,6 +45,19 @@ create table Pacientes(
 	Estado bit not null default (1)
 )
 go
+create table Recepcionistas(
+	Legajo int not null primary key identity(1,1),
+	Apellidos varchar(50) not null,
+	Nombres varchar(50) not null,
+	Dni varchar(10) not null,
+	Sexo varchar(1) not null,
+	CodigoPostal int foreign key references Localidades(CodigoPostal),
+	Direccion varchar(50),
+	Email varchar(50),
+	Telefono varchar(50),
+	Estado bit not null default (1)
+)
+go
 create table Usuarios_tipos(
 	Id bigint not null PRIMARY KEY IDENTITY(1,1),
 	Descripcion varchar(50) not null
@@ -967,4 +980,10 @@ insert into Usuarios (dniPaciente,Nombre,Contraseña,IdTipoUsuario) values
 ('29567890','fjansen','123456','1'),
 ('40514188','admin','admin','3')
 
-select Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono from Pacientes
+insert into Recepcionistas (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono) values
+('34567230', 'Alvarez', 'Matias', 'm', 1603, 'Terrero 169', 'carretilla@yahoo.com', '1143567809' ),
+('35079542', 'Arzua', 'Juan Cruz', 'm', 1648, 'Belgrano 243', 'elquemero@gmail.com', '1169820932'),
+('20859200', 'Portnoy', 'Miguel', 'm', 1614, 'Av Centenario 546', 'mikep@outlook.com', '1198638333'),
+('45095833', 'Tolki', 'Alicia', 'f', 1866, 'Tres Orientales 2354', 'strato@varius.com', '1193764832'),
+('16098777', 'Ramirez', 'Fernanda', 'x', 1836, 'Guareschi s/n', 'fer_nan_da@fibertel.com', '1108963666'),
+('90678421', 'Garcia Morales', 'Aldana', 'f', 1935, 'Sarmiento 866', 'alchu_gm@hotmail.com', '1153098320')
