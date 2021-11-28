@@ -969,7 +969,7 @@ insert into Pacientes (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,T
 
 insert into Usuarios_tipos (Descripcion) VALUES
 ('Paciente'),
-('Administrativo'),
+('Recepcionista'),
 ('Administrador')
 
 insert into Usuarios (dniPaciente,Nombre,Contraseña,IdTipoUsuario) values
