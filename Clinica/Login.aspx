@@ -8,7 +8,7 @@
             </div>
             <div class="form-group" style="width:70%; align-items:center; justify-content:center;padding:1em;">
                 <label for="usuario">Usuario</label>
-                <asp:TextBox runat="server" type="text" class="form-control" id="usuario" placeholder="Usuario"/> 
+                <asp:TextBox requiered="true" runat="server" type="text" class="form-control" id="usuario" placeholder="Usuario"/> 
 
             </div>
 
@@ -22,7 +22,7 @@
             </div>  
         
             <div  style="width:70%; align-items:center; justify-content:center; padding:1em;">
-                   <a class="dropdown-item" href="#">¿Eres nuevo? Resgistrate!</a>
+                   <a class="dropdown-item" href="Registrarse.aspx">¿Eres nuevo? Resgistrate!</a>
                    <a class="dropdown-item" href="#">Haz olvidado tu contraseña?</a>
             </div>
         </div>

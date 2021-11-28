@@ -52,6 +52,7 @@ namespace Clinica
                     }
                     else
                     {
+                        
                         Response.Redirect("Login.aspx?ex=1");
                     }
 

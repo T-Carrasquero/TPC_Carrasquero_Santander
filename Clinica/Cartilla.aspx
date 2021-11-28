@@ -68,7 +68,7 @@
                  <%if (Session["tipoUsuario"].ToString() == "Administrador")
                      { %>
                         <th>Acciones</th>
-                  < % } %>
+                  <% } %>
             </tr>
         </tfoot>
 

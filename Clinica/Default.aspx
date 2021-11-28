@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Clinica._Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" style="display:flex; justify-content:center;">
+    <div style="display:flex; align-self:center; padding:2em; background-image:url(https://www.flowww.net/hubfs/Q4%20Campa%C3%B1a%20marketing%20Noviembre%20/BLOG_ES/5-herramientas-de-gestion-esenciales-para-tu-clinica-medica.png); background-repeat:no-repeat; background-size:cover; height:400px; width:90%; ">
 
-    <img src="imagenes/31373f64f54c1734ecd3421fdb505101"  />
-    <h1>TPC Clinica</h1>
+        <h1>TPC Clinica</h1>
+
+    </div>
 
     <div class="jumbotron">
         <%--<h1>ASP.NET</h1> 
