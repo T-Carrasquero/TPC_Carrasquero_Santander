@@ -46,10 +46,10 @@ create table Pacientes(
 )
 go
 create table Recepcionistas(
-	Legajo int not null primary key identity(1,1),
+	--Legajo int not null primary key identity(1,1),
+	Dni varchar(10) not null,
 	Apellidos varchar(50) not null,
 	Nombres varchar(50) not null,
-	Dni varchar(10) not null,
 	Sexo varchar(1) not null,
 	CodigoPostal int foreign key references Localidades(CodigoPostal),
 	Direccion varchar(50),
@@ -70,6 +70,23 @@ create table Usuarios(
 	IdTipoUsuario bigint not null foreign key references Usuarios_tipos(Id),
 	dniPaciente varchar(10),
 	Estado bit not NULL default (1)
+)
+go
+create table ObraSocial(
+	Rnos varchar(10) not null primary key,
+	Nombre varchar(500) not null,
+	Sigla varchar(50),
+	Domicilio varchar(100),
+	CodigoPostal int,
+	Email varchar(100),
+	Estado bit not null default (1)
+)
+go
+create table Planes(
+	Id int primary key identity(1,1),
+	Nombre varchar(20) not null,
+	IdObraSocial varchar(10) not null foreign key references ObraSocial(Rnos),
+	Estado bit not null default (1)
 )
 go
 Use TPC_CLINICA_DB
@@ -987,3 +1004,39 @@ insert into Recepcionistas (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Em
 ('45095833', 'Tolki', 'Alicia', 'f', 1866, 'Tres Orientales 2354', 'strato@varius.com', '1193764832'),
 ('16098777', 'Ramirez', 'Fernanda', 'x', 1836, 'Guareschi s/n', 'fer_nan_da@fibertel.com', '1108963666'),
 ('90678421', 'Garcia Morales', 'Aldana', 'f', 1935, 'Sarmiento 866', 'alchu_gm@hotmail.com', '1153098320')
+
+insert into ObraSocial (Rnos, Nombre,Sigla, Domicilio, CodigoPostal, Email) values
+('3009', 'OBRA SOCIAL PERSONAL ASOCIADO A ASOC.MUTUAL SANCOR', 'SANCOR SALUD', 'SARMIENTO 811 PISO 4 OFICINA 1', 1350, 'ospersaams@sancorsalud.com.ar'),
+('500807','INSTITUTO NACIONAL DE SERVICIOS SOCIALES PARA JUBILADOS Y PENSIONADOS', 'PAMI', 'PERU 169 PISO 10 ', 1434, 'contacto@pami.org.ar'),
+('1508', 'OBRA SOCIAL ASOCIACION CIVIL PRO SINDICATO AMAS DE CASA DE LA REPUBLICA ARGENTINA', '	OSSACRA', 'PARAGUAY 1896 6° PISO', 1387,'info@ossacra.org.ar'),
+('100205', 'OBRA SOCIAL DE  ACTORES	ACTORES', 'OSA', 'AYACUCHO 537', 1399, 'info@osa.org.ar'),
+('100809','OBRA SOCIAL DE  AERONAVEGANTES',	'AERONAVEGANTES', 'BARTOLOME MITRE 1902 - PB', 1436, 'osa@aeronavegantes.com'),
+('604',	'OBRA SOCIAL DE AGENTES DE LOTERIAS Y AFINES DE LA REPUBLICA ARGENTINA','OSALARA', 'ADOLFO ALSINA 946', 1365, 'osalara@aleara.com.ar'),
+('118200','OBRA SOCIAL DE AGENTES DE PROPAGANDA MEDICA DE LA REPUBLICA ARGENTINA', 'OSAPM','AVELLANEDA 2144', 1424, 'obra_social@apm.org.ar'),
+('105804', 'OBRA SOCIAL DE CHOFERES DE CAMIONES',	'CHOFERES DE CAMIONES', 'AV. CASEROS 921/23', 1351, 'aliciak@spdps.com.ar'),
+('106302', 'OBRA SOCIAL DE DOCENTES PARTICULARES',	'OSDOP', 'BARTOLOME MITRE 2233', 1400, 'info@osdop.com.ar'),
+('111605', 'OBRA SOCIAL DE EMPLEADOS DE LA MARINA MERCANTE', 'MARINA MERCANTE', 'Bartolomé Mitre 3776', 1400, 'obrasocial@oscomm.org.ar'),
+('108605', 'OBRA SOCIAL DE FUTBOLISTAS', 'FAA', 'SALTA 1144', 1352, 'agremiados@infovia.com.ar'),
+('125509', 'OBRA SOCIAL DE LA FEDERACION ARGENTINA DEL TRABAJADOR DE LAS UNIVERSIDADES NACIONALES', 'OSFATUN', 'AV BELGRANO 3768 4TO. PISO', 1369, 'info@osfatun.com.ar'),
+('112103', 'OBRA SOCIAL DE LA UNION OBRERA METALURGICO DE LA REPUBLICA ARGENTINA', 'UOM – OSUOMRA', 'ALSINA 485 - PISO 4', 1440, 'consultas@forjarsalud.com.ar'),
+('127505', 'OBRA SOCIAL DE LAS ASOCIACIONES DE EMPLEADOBRA SOCIAL DE FARMACIA', 'OSADEF', 'RINCON 1035', 1378, 'gestion@osadef.com.ar'),
+('110602', 'OBRA SOCIAL DE LOCUTORES', 'OSDEL', 'VIDT 2011', 1358, 'locutores@sinectis.com.ar'),
+('126205', 'OBRA SOCIAL DE LOS EMPLEADOS DE COMERCIO Y ACTIVIDADES CIVILES', 'OSECAC', 'MORENO 648/50', 1390, 'info@osecac.org.ar'),
+('112806', 'OBRA SOCIAL DE MUSICOS', 'OSDEM', 'AVDA. BELGRANO 3655', 1402, 'institucional@osdem.org.ar'),
+('123701', 'OBRA SOCIAL DE PEONES DE TAXIS DE LA CAPITAL FEDERAL', 'OSPETAX', 'AVDA LA PLATA 1554/60/62/64', 1367, 'sindicato_taxis@speedy.com.ar'),
+('120801', 'OBRA SOCIAL DE TRABAJADORES DE LAS COMUNICACIONES', 'COMUNICACIONES – OSTRAC', 'CHACABUCO 140', 1365, 'ostrac@infovia.com.ar '),
+('127307', 'OBRA SOCIAL DE TRABAJADORES VIALES Y AFINES DE LA REPUBLICA ARGENTINA', 'OS DE TRAB.VIALES Y AF. DE RA', 'MEXICO 1399 P.B ESQUINA SAN JOSE', 1449, 'info@vialsalud.com.ar'),
+('103600', 'OBRA SOCIAL DEL PERSONAL AUXILIAR DE CASAS PARTICULARES', 'OSPACP', 'CHARCAS 2745', 1432, 'info@ospacp.org.ar'),
+('402004', 'OBRA SOCIAL DEL PERSONAL DE DIRECCION DE LA SANIDAD LUIS PASTEUR', 'LUIS PASTEUR', 'CALLAO 764/66', 1399, 'info@oslpasteur.com.ar'),
+('104306', 'OBRA SOCIAL DEL PERSONAL DE LA ACTIVIDAD CERVECERA Y AFINES', 'OSPACA', 'HUMAHUACA 4072', 1430, 'consultas@oscervecera.org.ar'),
+('105408', 'OBRA SOCIAL DEL PERSONAL DE LA CONSTRUCCION	CONSTRUIR SALUD', 'OSPECON', 'AVDA. BELGRANO 1862/70', 1420, 'salud@uocra.org'),
+('113601', 'OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL NEUMATICO', 'OSPIN', 'JUJUY 995', 1424, 'ospin@ospin.org.ar'),
+('116006', 'OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL PLASTICO',	'OSPIP', 'PAVON 4175', 1455, 'info@ospip.org.ar'),
+('111001', 'OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA MADERERA',	'OSPIM', 'ROJAS 254', 1439, 'contacto@ospim.com.ar'),
+('111209', 'OBRA SOCIAL DEL PERSONAL DE MAESTRANZA', 'OSPM', 'ALZAGA 2271', 1350, 's-o-m@satlink.com'), 
+('123305', 'OBRA SOCIAL DEL PERSONAL DE SOCIEDADES DE AUTORES Y AFINES', 'OSPESA', 'MONTEVIDEO 453', 1411, 'auditoria@ospesa.com.ar'),
+('401704', 'OBRA SOCIAL EMPRESARIOS,PROFESIONALES Y MONOTRIBUTISTAS', 'OSDEPYM', 'RECONQUISTA 458 PISO 2', 1390, 'info@osdepym.com.ar'),
+('1300', 'OBRA SOCIAL FERROVIARIA',	'OSFE', 'ESTADOS UNIDOS 2859', 1405, 'info@osferroviaria.org.ar'),
+('1102', 'OBRA SOCIAL PARA LA ACTIVIDAD DOCENTE', 'OSPLAD', 'TACUARI 345', 1378, 'info@osplad.org.ar'),
+('400800', 'ORGANIZACION DE SERVICIOS DIRECTOS EMPRESARIOS', 'OSDE', ' AVDA. LEANDRO N. ALEM 1067 PISO 9', 1376, 'gerencia@osde.com.ar'),
+('0', 'Sin Obra Social', 'Sin Obra Social', '', '', '')
