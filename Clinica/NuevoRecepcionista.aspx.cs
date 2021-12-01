@@ -86,7 +86,7 @@ namespace Clinica
                 var grabo = negocio.crear(recepcionista);
             }
 
-            Response.Redirect("/Pacientes.aspx");
+            Response.Redirect("/Recepcionistas.aspx");
         }
 
         private string ObtenerSexo()

@@ -129,8 +129,10 @@
     <Content Include="Cartilla.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
+    <Content Include="NuevaObraSocial.aspx" />
     <Content Include="NuevoPaciente.aspx" />
     <Content Include="NuevoRecepcionista.aspx" />
+    <Content Include="ObrasSociales.aspx" />
     <Content Include="Pacientes.aspx" />
     <Content Include="Recepcionistas.aspx" />
     <Content Include="Registrarse.aspx" />
@@ -217,6 +219,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NuevaObraSocial.aspx.cs">
+      <DependentUpon>NuevaObraSocial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevaObraSocial.aspx.designer.cs">
+      <DependentUpon>NuevaObraSocial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NuevoPaciente.aspx.cs">
       <DependentUpon>NuevoPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -230,6 +239,13 @@
     </Compile>
     <Compile Include="NuevoRecepcionista.aspx.designer.cs">
       <DependentUpon>NuevoRecepcionista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObrasSociales.aspx.cs">
+      <DependentUpon>ObrasSociales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ObrasSociales.aspx.designer.cs">
+      <DependentUpon>ObrasSociales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pacientes.aspx.cs">
       <DependentUpon>Pacientes.aspx</DependentUpon>
