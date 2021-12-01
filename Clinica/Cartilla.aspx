@@ -65,8 +65,8 @@
                 <th>Especialidad</th>
                 <th>Matricula</th>
                 <th>Contacto</th>
-                 <%if (Session["tipoUsuario"].ToString() == "Administrador")
-                     { %>
+                 <%if (Session["tipoUsuario"].ToString() == "Administrador")%>
+                   <% {%>
                         <th>Acciones</th>
                   <% } %>
             </tr>

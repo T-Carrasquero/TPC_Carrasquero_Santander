@@ -14,10 +14,14 @@ namespace Clinica
         public List<Especialidad> Especialidad { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == null)
+            if (Session["username"] == null )
             {
                 Response.Redirect("Login.aspx");
+            } else if (Session["TipoUsuario"].ToString() != "Administrador"  || Session["TipoUsuario"].ToString() != "Recepcionista")
+            {
+                Response.Redirect("Default.aspx");
             }
+
 
 
             EspecialidadNegocio negocio = new EspecialidadNegocio();
