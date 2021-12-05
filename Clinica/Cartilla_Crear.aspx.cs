@@ -17,7 +17,7 @@ namespace Clinica
             if (Session["username"] == null )
             {
                 Response.Redirect("Login.aspx");
-            } else if (Session["TipoUsuario"].ToString() != "Administrador"  || Session["TipoUsuario"].ToString() != "Recepcionista")
+            } else if (Session["TipoUsuario"].ToString() != "Administrador" )
             {
                 Response.Redirect("Default.aspx");
             }
