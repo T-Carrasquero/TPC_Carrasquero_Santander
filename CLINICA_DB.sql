@@ -89,6 +89,22 @@ create table Planes(
 	Estado bit not null default (1)
 )
 go
+
+create table Turnos_Estados(
+    	Id int not null primary key IDENTITY(1,1),
+    	Descripcion VARCHAR(50) not null
+)
+go
+
+create table Turnos (
+    	Id bigint not null primary key identity(1,1),
+	DniMedico varchar(10) not null foreign key references Medicos(Dni),
+	dniPaciente varchar(10) not null foreign key references Pacientes(Dni),
+	Fecha date not null,
+	Hora float not null,
+	Estado int not null DEFAULT(1) foreign key references Turnos_Estados(Id)
+)
+go
 Use TPC_CLINICA_DB
 go
 
@@ -1040,3 +1056,12 @@ insert into ObraSocial (Rnos, Nombre,Sigla, Domicilio, CodigoPostal, Email) valu
 ('1102', 'OBRA SOCIAL PARA LA ACTIVIDAD DOCENTE', 'OSPLAD', 'TACUARI 345', 1378, 'info@osplad.org.ar'),
 ('400800', 'ORGANIZACION DE SERVICIOS DIRECTOS EMPRESARIOS', 'OSDE', ' AVDA. LEANDRO N. ALEM 1067 PISO 9', 1376, 'gerencia@osde.com.ar'),
 ('0', 'Sin Obra Social', 'Sin Obra Social', '', '', '')
+
+insert into Turnos_Estados (Descripcion) values
+('Pendiente'),
+('Reprogramado'),
+('Cancelado'),
+('A confirmar')
+
+insert into Turnos (DniMedico, dniPaciente,Fecha, Hora, Estado) values
+('40514188','29567890','2021-12-20',9,1)
