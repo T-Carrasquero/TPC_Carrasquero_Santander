@@ -82,8 +82,11 @@
                       <td><%:item.Fecha %></td>
                       <td><%:item.Hora + ":00 hs" %></td>
                       <td><%:item.Estado %></td>
-                      <td>                          
+                      <td>   
+                       <%if (item.Estado.ToString() != "Cancelado")
+                              {%>
                          <a class="btn" href="/Turnos.aspx?idCancel=<%:item.id%>" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
+                       <%} %>
                           <%if (item.Estado.ToString() == "A confirmar")
                               {%>
                           <a class="btn" href="/Turnos.aspx?idConfirm=<%:item.id%>" aria-label="Check"> <i class="material-icons" aria-hidden="true">check</i></a>

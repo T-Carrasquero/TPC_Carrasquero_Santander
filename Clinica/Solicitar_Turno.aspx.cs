@@ -147,12 +147,6 @@ namespace Clinica
             turno.Hora = float.Parse(ddlHorarios.SelectedValue.ToString());
 
 
-            Response.Write("<script>alert('" + turno.Paciente + "');</script>");
-            Response.Write("<script>alert('" + turno.Medico + "');</script>");
-            Response.Write("<script>alert('" + turno.Fecha.ToString("yyyy-MM-dd") + "');</script>");
-            Response.Write("<script>alert('" + turno.Hora + "');</script>");
-            Response.Write("<script>alert('" + turno.Estado + "');</script>");
-
             var grabo = negocio.crear(turno);
 
             //if (Session["tipoUsuario"].ToString() == "Administrador")
