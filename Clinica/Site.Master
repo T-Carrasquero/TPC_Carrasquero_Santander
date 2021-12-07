@@ -49,6 +49,9 @@
                                              <li class="nav-item" style="justify-content:center;align-content:center;">
                                                     <a class="nav-link" href="/Cartilla"><span class="material-icons">medical_services</span> Cartilla</a>
                                              </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="/Turnos.aspx"><span class="material-icons">event</span> Turnos</a>
+                                             </li>
                                                <li class="nav-item">
                                                     <a class="nav-link" href="/Pacientes"><span class="material-icons">groups</span> Pacientes</a>
                                              </li>
@@ -57,9 +60,6 @@
                                              </li>
                                                <li class="nav-item">
                                                     <a class="nav-link" href="/ObrasSociales"><span class="material-icons">healing</span> Obras Sociales</a>
-                                             </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="/Turnos.aspx"><span class="material-icons">event</span> Turnos</a>
                                              </li>
                                            <!--  <li class="nav-item dropdown">
                                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

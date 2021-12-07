@@ -21,9 +21,9 @@
                    <hr/>
             </div>  
         
-            <div  style="width:70%; align-items:center; justify-content:center; padding:1em;">
+            <div  style="width:70%; align-items:center; justify-content:center; padding:1em; ">
                    <a class="dropdown-item" href="Registrarse.aspx">¿Eres nuevo? Resgistrate!</a>
-                   <a class="dropdown-item" href="#">Haz olvidado tu contraseña?</a>
+
             </div>
         </div>
     </div>

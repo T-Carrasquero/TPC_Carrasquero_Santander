@@ -19,14 +19,40 @@ namespace Clinica
                 Response.Redirect("Login.aspx");
             }
 
-            string dni = Session["dni"].ToString();
+            if (Request.QueryString["idCancel"] != null)
+            {
+                int id = int.Parse(Request.QueryString["idCancel"].ToString());
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                turnoNegocio.cancelar(id);
+                Response.Redirect("Turnos.aspx");
+            }
+            if (Request.QueryString["idConfirm"] != null)
+            {
+                int id = int.Parse(Request.QueryString["idConfirm"].ToString());
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                turnoNegocio.confirmar(id);
+                Response.Redirect("Turnos.aspx");
+            }
 
-            TurnoNegocio turnoNegocio = new TurnoNegocio();
-            turnosLista = turnoNegocio.listar(dni);
+
+            if (Session["tipoUsuario"].ToString() == "Paciente")
+            {
+                string dni = Session["dni"].ToString();
+
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                turnosLista = turnoNegocio.listar(dni);
+            }
+
+            if (Session["tipoUsuario"].ToString() == "Administrador")
+            {
+                string dni = Session["dni"].ToString();
+
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                turnosLista = turnoNegocio.listarTodos();
+            }
+
 
         }
-
-
 
     }
 }

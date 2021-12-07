@@ -8,6 +8,8 @@ namespace Dominio
 {
     public class Turno
     {
+        public int id { get; set; }
+        public string Especialidad { get; set; }
         public string Medico { get; set; }
         public DateTime Fecha { get; set; }
         public float Hora { get; set; }
@@ -16,6 +18,7 @@ namespace Dominio
 
         public Turno()
         {
+            Especialidad = string.Empty;
             Medico = string.Empty;
             Paciente = string.Empty;
             Fecha =   DateTime.Now;
