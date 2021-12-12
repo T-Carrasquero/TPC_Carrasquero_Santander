@@ -37,7 +37,7 @@
                     <div id="fecha-ls" style="padding-top:20px;">
 
                         <label for="fecha">Fecha *</label>
-                        <asp:textbox type="date" id="fecha" class="form-select" AutoPostBack="true" runat="server" OnTextChanged="fecha_TextChanged"></asp:textbox>
+                        <asp:textbox type="date" id="fecha" class="form-select" AutoPostBack="true" onkeydown="return false;" runat="server" OnTextChanged="fecha_TextChanged"></asp:textbox>
 
                     </div>
                     <div id="hora-ls" style="padding-top:20px;">

@@ -12,12 +12,12 @@ namespace Clinica
     public partial class Solicitar_Turno : System.Web.UI.Page
     {
         public List<Turno> horariosLista = new List<Turno>();
-        public List<Especialidad> Especialidad { get; set; }
+        public List<Especialidad> especialidad { get; set; }
         public List<Profesional> Medicos { get; set; }
-        public List<Paciente> Pacientes { get; set; }
+        public List<Paciente> pacientes { get; set; }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["username"] == null)
             {
                 Response.Redirect("Login.aspx");
@@ -26,9 +26,10 @@ namespace Clinica
             DateTime hoy = DateTime.Today;
 
             EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
-            Especialidad = especialidadNegocio.listar();
             PacienteNegocio pacienteNegocio = new PacienteNegocio();
-            Pacientes = pacienteNegocio.listar();
+            
+            especialidad = especialidadNegocio.listar();
+            pacientes = pacienteNegocio.listar();
 
             if(fecha.Text == hoy.ToString("yyyy-MM-dd"))
             {
@@ -43,19 +44,21 @@ namespace Clinica
                 {
                     fecha.BorderColor = System.Drawing.Color.Red;
                 }
-
             }
 
             if (!IsPostBack)
             {
-                foreach (var item in Especialidad)
+
+
+                foreach (var item in especialidad)
                 {
                     ListItem aux = new ListItem(item.Descripcion, item.Descripcion);
                     ddlEspecialidad.Items.Add(aux);
                 }
+
                 if (Session["tipoUsuario"].ToString() == "Administrador")
                 {
-                    foreach (var item in Pacientes)
+                    foreach (var item in pacientes)
                     {
                         ListItem aux = new ListItem(item.Nombre + " " + item.Apellido, item.Dni);
                         ddlPaciente.Items.Add(aux);
@@ -146,8 +149,8 @@ namespace Clinica
             turno.Fecha = DateTime.Parse(fecha.Text);
             turno.Hora = float.Parse(ddlHorarios.SelectedValue.ToString());
 
-
             var grabo = negocio.crear(turno);
+            EnviarMailConfirmacion(turno);
 
             //if (Session["tipoUsuario"].ToString() == "Administrador")
             //{
@@ -164,7 +167,38 @@ namespace Clinica
 
             //}
 
-           // Response.Redirect("/Turnos.aspx");
+            // Response.Redirect("/Turnos.aspx");
+        }
+
+        private void EnviarMailConfirmacion(Turno turno)
+        {
+            var pacienteNegocio = new PacienteNegocio();
+            var medicoNegocio = new MedicosNegocio();
+
+            var medico = medicoNegocio.buscarMedicoId(turno.Medico);
+            var paciente = pacienteNegocio.buscarPaciente(turno.Paciente);
+
+            if (string.IsNullOrEmpty(paciente.Mail))
+            {
+                return;
+            }
+
+            string nombreApellido = paciente.Apellido + ", " + paciente.Nombre;
+            string emaildestino = paciente.Mail;
+            string doctor = medico.Apellido + ", " + medico.Nombre;
+            DateTime dia = turno.Fecha;
+            float hora = turno.Hora;
+
+            EmailService emailService = new EmailService();
+            emailService.armarMail(emaildestino, nombreApellido, doctor, dia, hora);
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+            }
         }
     }
 }

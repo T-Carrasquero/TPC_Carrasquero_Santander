@@ -1011,7 +1011,8 @@ insert into Usuarios (dniPaciente,Nombre,Contraseña,IdTipoUsuario) values
 ('23345678','jmyung','123456','1'),
 ('24456789','ewilson','123456','1'),
 ('29567890','fjansen','123456','1'),
-('40514188','admin','admin','3')
+('40514188','admin','admin','3'),
+('35079542','jcarzua','recep','2')
 
 insert into Recepcionistas (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono) values
 ('34567230', 'Alvarez', 'Matias', 'm', 1603, 'Terrero 169', 'carretilla@yahoo.com', '1143567809' ),

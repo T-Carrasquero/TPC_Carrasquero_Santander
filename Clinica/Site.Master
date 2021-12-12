@@ -78,7 +78,7 @@
                                             </ul>
                                     </div>
                                     <div>
-                                        <asp:Button ID="btnSalir" CssClass="btn btn-outline-secondary" Text="Salir" OnClick="btnSalir_Click" runat="server" />
+                                        <asp:Button ID="btnSalir" CssClass="btn btn-outline-secondary" CausesValidation="false" Text="Salir" OnClick="btnSalir_Click" runat="server" />
                                     </div>
                              </div>
                          </div>
@@ -121,7 +121,7 @@
                                             </ul>
                                     </div>
                                     <div>
-                                        <asp:Button ID="Button1" CssClass="btn btn-outline-secondary" Text="Salir" OnClick="btnSalir_Click" runat="server" />
+                                        <asp:Button ID="Button1" CssClass="btn btn-outline-secondary" Text="Salir" CausesValidation="false" OnClick="btnSalir_Click" runat="server" />
                                     </div>
                              </div>
                          </div>
