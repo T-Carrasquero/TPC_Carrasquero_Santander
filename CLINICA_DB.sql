@@ -1003,7 +1003,8 @@ insert into Pacientes (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,T
 insert into Usuarios_tipos (Descripcion) VALUES
 ('Paciente'),
 ('Recepcionista'),
-('Administrador')
+('Administrador'),
+('Medico')
 
 insert into Usuarios (dniPaciente,Nombre,Contraseña,IdTipoUsuario) values
 ('20123456','mjimenez','123456','1'),
@@ -1012,7 +1013,25 @@ insert into Usuarios (dniPaciente,Nombre,Contraseña,IdTipoUsuario) values
 ('24456789','ewilson','123456','1'),
 ('29567890','fjansen','123456','1'),
 ('40514188','admin','admin','3'),
-('35079542','jcarzua','recep','2')
+('35079542','jcarzua','recep','2'),
+('40514188','tsantander','123456','4'),
+('40514189','tcarrasquero','123456','4'),
+('40514190','jperez','123456','4'),
+('40514191','framirez','123456','4'),
+('40514192','lhidalgo','123456','4'),
+('40514193','pluque','123456','4'),
+('40514194','fgenito','123456','4'),
+('40514195','lalvarez','123456','4'),
+('40514196','rgimenez','123456','4'),
+('40514197','tdelgado','123456','4'),
+('40514198','cbasualdo','123456','4'),
+('40514199','lschulte','123456','4'),
+('40514200','fbrignole','123456','4'),
+('40514201','lfblanco','123456','4'),
+('40514202','jpanepucci','123456','4'),
+('40514203','rreygardi','123456','4'),
+('40514204','pgonzalez','123456','4'),
+('40514205','lbonetto','123456','4')
 
 insert into Recepcionistas (Dni,Apellidos,Nombres,Sexo,CodigoPostal,Direccion,Email,Telefono) values
 ('34567230', 'Alvarez', 'Matias', 'm', 1603, 'Terrero 169', 'carretilla@yahoo.com', '1143567809' ),
@@ -1062,7 +1081,9 @@ insert into Turnos_Estados (Descripcion) values
 ('Pendiente'),
 ('Reprogramado'),
 ('Cancelado'),
-('A confirmar')
+('A confirmar'),
+('Atendido'),
+('Ausente')
 
 insert into Turnos (DniMedico, dniPaciente,Fecha, Hora, Estado) values
 ('40514188','29567890','2021-12-20',9,1)
