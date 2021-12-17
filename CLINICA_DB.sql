@@ -102,6 +102,8 @@ create table Turnos (
 	dniPaciente varchar(10) not null foreign key references Pacientes(Dni),
 	Fecha date not null,
 	Hora float not null,
+	Informe varchar (500),
+	Indicaciones varchar (500),
 	Estado int not null DEFAULT(1) foreign key references Turnos_Estados(Id)
 )
 go
