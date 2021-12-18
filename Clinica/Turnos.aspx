@@ -15,15 +15,16 @@
                     }
                 });
             });
+
         </script>
    
     <div id="titulo" style="display:flex;  flex-direction:row; justify-content:space-between; width:100%;  margin-bottom: 2em;">
          <h3>Turnos</h3>
          <a Text="Solicitar Turno" class="btn btn-outline-success" ID="Button1" href="/Solicitar_Turno.aspx">Solicitar Turno</a>
     </div>
+   
     
-    
-    <% if (Session["tipoUsuario"].ToString() == "Paciente")
+    <% if (Session["tipoUsuario"].ToString() == "Paciente" )
         {
 
 
@@ -38,7 +39,7 @@
                                 <div class="card" style="width: 18rem;">
                                   <div class="card-body">
                                     <h5 class="card-title">Dr/Dra: <%:item.Medico%></h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Especialidad</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted"><%:item.Especialidad %></h6>
                                       <br />
                                     <p class="card-text">Estado: <%:item.Estado%></p>
                                     <p href="#" class="card-text">Fecha: <%:item.Fecha.ToString("dd-MM-yyyy")%></p>
@@ -58,7 +59,7 @@
 
               <%} %>
     <% }
-        else if(Session["tipoUsuario"].ToString() == "Administrador")
+        else if(Session["tipoUsuario"].ToString() == "Administrador" || Session["tipoUsuario"].ToString() == "Medico")
         { %>
     
          <table id="example" class="w3-table w3-bordered w3-hoverable" style="width:100%; padding-top:1em;  padding-bottom:1em; margin-top:2em; ">
@@ -79,17 +80,29 @@
                     <tr>
                       <td><%:item.Paciente %> </td>
                       <td><%:item.Medico%></td>
-                      <td><%:item.Fecha %></td>
+                      <td><%:item.Fecha.ToString("dd-MM-yyyy") %></td>
                       <td><%:item.Hora + ":00 hs" %></td>
                       <td><%:item.Estado %></td>
                       <td>   
                        <%if (item.Estado.ToString() != "Cancelado")
-                              {%>
-                         <a class="btn" href="/Turnos.aspx?idCancel=<%:item.id%>" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
+                           {
+                               if (Session["tipoUsuario"].ToString() == "Administrador")
+                               {%>
+                                    <a class="btn" href="/Turnos.aspx?idCancel=<%:item.id%>" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
+                                 <%}
+                               if ((Session["tipoUsuario"].ToString() == "Medico" || Session["tipoUsuario"].ToString() == "Administrador") && item.Estado.ToString() == "Pendiente" )
+                               {%>
+                                    <a class="btn" href="/Turnos.aspx?idAusente=<%:item.id%>" aria-label="Ausente"> <i class="material-icons" aria-hidden="true">hourglass_disabled</i></a>
+                               <%}%>    
+                             
                        <%} %>
                           <%if (item.Estado.ToString() == "A confirmar")
                               {%>
                           <a class="btn" href="/Turnos.aspx?idConfirm=<%:item.id%>" aria-label="Check"> <i class="material-icons" aria-hidden="true">check</i></a>
+                          <%} %>
+                           <%if (item.Estado.ToString() == "Pendiente")
+                              {%>
+                          <a class="btn" href="/Atencion.aspx?idEdit=<%:item.id%>" aria-label="Descripcion"> <i class="material-icons" aria-hidden="true">description</i></a>
                           <%} %>
                       </td>                    
                        

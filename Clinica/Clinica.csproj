@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Atencion.aspx" />
     <Content Include="Cartilla_Crear.aspx" />
     <Content Include="ConfirmarModal.aspx" />
     <Content Include="Contact.aspx" />
@@ -128,6 +129,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Cartilla.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Historia_Clinica.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NuevaObraSocial.aspx" />
     <Content Include="NuevoPaciente.aspx" />
@@ -183,6 +185,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Atencion.aspx.cs">
+      <DependentUpon>Atencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atencion.aspx.designer.cs">
+      <DependentUpon>Atencion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cartilla_Crear.aspx.cs">
       <DependentUpon>Cartilla_Crear.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,6 +222,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Historia_Clinica.aspx.cs">
+      <DependentUpon>Historia_Clinica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Historia_Clinica.aspx.designer.cs">
+      <DependentUpon>Historia_Clinica.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

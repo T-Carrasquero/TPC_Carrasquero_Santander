@@ -45,7 +45,7 @@
                           
                               <a class="btn" href="/NuevoPaciente.aspx?dni=<%:item.Dni%>" aria-label="Edit"> <i class="material-icons" aria-hidden="true">edit</i></a>
                               <a class="btn" href="/Pacientes.aspx?dni=<%:item.Dni%>" aria-label="Delete"> <i class="material-icons" aria-hidden="true">delete</i></a>
-                      
+                              <a class="btn" href="/Historia_Clinica.aspx?idHistoria=<%:item.Dni %>&origin=pacientes"> <i class="material-icons" aria-hidden="true">manage_search</i></a>
 
                           </td>
                         </tr>

@@ -12,6 +12,7 @@ namespace Clinica
     public partial class Turnos : System.Web.UI.Page
     {
         public List<Turno> turnosLista = new List<Turno>();
+        DateTime fecha = DateTime.Today;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -26,6 +27,16 @@ namespace Clinica
                 turnoNegocio.cancelar(id);
                 Response.Redirect("Turnos.aspx");
             }
+
+
+            if (Request.QueryString["idAusente"] != null)
+            {
+                int id = int.Parse(Request.QueryString["idAusente"].ToString());
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                turnoNegocio.ausente(id);
+                Response.Redirect("Turnos.aspx");
+            }
+
             if (Request.QueryString["idConfirm"] != null)
             {
                 int id = int.Parse(Request.QueryString["idConfirm"].ToString());
@@ -49,6 +60,14 @@ namespace Clinica
 
                 TurnoNegocio turnoNegocio = new TurnoNegocio();
                 turnosLista = turnoNegocio.listarTodos();
+            }
+
+            if (Session["tipoUsuario"].ToString() == "Medico")
+            {
+                string dni = Session["dni"].ToString();
+
+                TurnoNegocio turnoNegocio = new TurnoNegocio();
+                turnosLista = turnoNegocio.listarPorMedico(dni);
             }
 
 
